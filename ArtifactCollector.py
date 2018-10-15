@@ -1,7 +1,5 @@
-import sys
-import logging
 from datetime import datetime
-import os
+import logging
 import subprocess
 import shlex
 
@@ -9,17 +7,24 @@ ERROR_CODE = 1
 LOG = 'logs/{{{}}}.log'
 ROOT_DIR = '/'
 PRINT_COMMAND = 'find %s -type f -exec cat {} +'
-COMMANDS = {'kernel_name_version': ['uname -rs'],
-            'kernel modules': ['lsmod'],
-            'network interfaces': ['ifconfig -a'],
+COMMANDS = {'kernel_name_version'   : ['uname -rs'],
+            'kernel modules'        : ['lsmod'],
+            'network interfaces'    : ['ifconfig -a'],
             'networking information': [PRINT_COMMAND % '/etc/hosts',
                                        PRINT_COMMAND % '/etc/networks',
                                        PRINT_COMMAND % '/etc/protocols',
                                        PRINT_COMMAND % '/etc/ethers',
                                        PRINT_COMMAND % '/etc/netgroup',
                                        PRINT_COMMAND % '/etc/dhclients'],
-            'hostname': ['hostname',
-                         PRINT_COMMAND % '/etc/hostname']}
+            'hostname'              : ['hostname',
+                                       PRINT_COMMAND % '/etc/hostname'],
+            'login history'         : ['last -Faixw',
+                                       PRINT_COMMAND % '/etc/logs/auth.log',
+                                       PRINT_COMMAND % '/etc/logs/secure',
+                                       PRINT_COMMAND % '/etc/logs/audit.log'],
+            'unix distribution'     : [PRINT_COMMAND % '/etc/*release'],
+            'socket connections'    : ['ss -p'],
+            'processes'             : ['ps -eww']}
 
 
 class ArtifactCollector(object):
@@ -46,6 +51,9 @@ class ArtifactCollector(object):
 
         self.logger.info('Started execution')
 
+    # call_commands()
+    # Function to iterate through the command dictionary and executing each command. It saves runtime information to the
+    # log file and keeps track of unsuccessful commands.
     def call_commands(self):
         for section in COMMANDS:
             for command in COMMANDS[section]:
@@ -53,12 +61,9 @@ class ArtifactCollector(object):
                 try:
                     return_code = subprocess.call(shlex.split(command))
                 except OSError as e:
-                    self.logger.debug('Unknown command: ' + e.filename)
+                    self.logger.info('Unknown command: ' + e.filename)
                 except subprocess.CalledProcessError as e:
-                    self.logger.debug('Could not find command!')
-                if return_code == ERROR_CODE:
-                    self.logger.debug('File does not exist, unable to run command: ' + command)
-
-
-myClass = ArtifactCollector()
-myClass.call_commands()
+                    self.logger.info('Could not find command!')
+                else:
+                    if return_code == ERROR_CODE:
+                        self.logger.info('File does not exist, unable to run command: ' + command)
