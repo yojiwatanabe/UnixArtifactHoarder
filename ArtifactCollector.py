@@ -7,6 +7,7 @@ ERROR_CODE = 1
 LOG = 'logs/{{{}}}.log'
 ROOT_DIR = '/'
 PRINT_COMMAND = 'find %s -type f -exec cat {} +'
+LIST_COMMAND = 'find %s -type f -exec ls {} +'
 COMMANDS = {'kernel_name_version'   : ['uname -rs'],
             'kernel modules'        : ['lsmod'],
             'network interfaces'    : ['ifconfig -a'],
@@ -24,7 +25,15 @@ COMMANDS = {'kernel_name_version'   : ['uname -rs'],
                                        PRINT_COMMAND % '/etc/logs/audit.log'],
             'unix distribution'     : [PRINT_COMMAND % '/etc/*release'],
             'socket connections'    : ['ss -p'],
-            'processes'             : ['ps -eww']}
+            'processes'             : ['ps -eww'],
+            'password files'        : [PRINT_COMMAND % '/etc/shadow',
+                                       PRINT_COMMAND % '/etc/passwd'],
+            'scheduled jobs'        : [PRINT_COMMAND % '/etc/cron*',
+                                       PRINT_COMMAND % '/var/spool/cron/*'],
+            'x window config files' : [PRINT_COMMAND % '/etc/X11/*'],
+            'yum repositories'      : [PRINT_COMMAND % '/etc/yum.repos.d/*'],
+            'cached yum data files' : [LIST_COMMAND % '/var/cache/yum'],
+            'installed yum packages': ['yum list installed']}
 
 
 class ArtifactCollector(object):
@@ -36,9 +45,9 @@ class ArtifactCollector(object):
     #   start_logging()
     #   Begin logging execution
     def start_logging(self):
-        self.logger.setLevel(logging.INFO)
+        self.logger.setLevel(logging.DEBUG)
 
-        formatter = logging.Formatter('%(asctime)s %(levelname)-5s- - - %(message)s')
+        formatter = logging.Formatter('%(asctime)s %(levelname)-8s- - - %(message)s')
 
         file_handler = logging.FileHandler(LOG.replace('{{{}}}', '{date:%Y-%m-%d_%H:%M:%S}'.format(date=datetime.now())))
         file_handler.setFormatter(formatter)
@@ -61,9 +70,9 @@ class ArtifactCollector(object):
                 try:
                     return_code = subprocess.call(shlex.split(command))
                 except OSError as e:
-                    self.logger.info('Unknown command: ' + e.filename)
+                    self.logger.warning('Unknown command: ' + e.filename)
                 except subprocess.CalledProcessError as e:
-                    self.logger.info('Could not find command!')
+                    self.logger.warning('Could not find command!')
                 else:
                     if return_code == ERROR_CODE:
-                        self.logger.info('File does not exist, unable to run command: ' + command)
+                        self.logger.warning('File does not exist, unable to run command: ' + command)
