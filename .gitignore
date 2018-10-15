@@ -1,3 +1,6 @@
+#Project
+./logs/*
+
 #IDE
 .idea/
 /venv
