@@ -1,7 +1,24 @@
 #Project
 logs/*
+cached_yum_data_files/*
+hostname/*
+kernel_name_version/*
+login_history/*
+network_interfaces/*
+networking_information/*
+open_files/*
+password_files/*
+processes/*
+scheduled_jobs/*
+ssh_configuration/*
+startup_scripts/*
+unix_distribution/*
+user_commands/*
+x_window_config_files/*
+yum_repositories/*
 
 #IDE
+python_sudo
 .idea/
 /venv
 
