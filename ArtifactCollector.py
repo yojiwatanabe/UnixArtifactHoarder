@@ -53,6 +53,7 @@ class ArtifactCollector(object):
         self.logger = logging.getLogger()
         self.start_logging()
         self.check_root_access()
+        self.check_directories()
         self.call_commands()
 
     #   start_logging()
@@ -71,6 +72,7 @@ class ArtifactCollector(object):
         clo_handler.setFormatter(formatter)
         self.logger.addHandler(clo_handler)
 
+
         self.logger.info('Started execution')
 
     # check_root_access()
@@ -83,6 +85,19 @@ class ArtifactCollector(object):
         else:
             self.logger.info('Confirmed superuser privileges, running...')
             return
+
+    # check_directories()
+    # Sets up directory structure for file IO, ensures correct hierarchy for successful writing
+    def check_directories(self):
+        self.logger.info('Checking directory structure...')
+        section_directories = map(lambda x: x.replace(' ', '_'), COMMANDS)
+
+        for section in section_directories:
+            if not os.path.exists(section):
+                os.mkdir(section)
+                self.logger.info('Directory %s does not exist, creating...' % section)
+            else:
+                self.logger.info('Directory %s exists' % section)
 
     # call_commands()
     # Function to iterate through the command dictionary and executing each command. It saves runtime information to the
@@ -110,8 +125,6 @@ class ArtifactCollector(object):
     def save_output(self, section, command, output):
         fname = os.path.join(section.replace(' ', '_'), command.replace(' ', '_').replace('/', '_') + '.txt')
         self.logger.info('Saving output to %s' % fname)
-        if not os.path.exists(fname):
-            os.mknod(fname)
         file = open(fname, 'w')
         file.write(output)
         file.close()
