@@ -1,9 +1,13 @@
 from datetime import datetime
+from subprocess import Popen, PIPE, CalledProcessError
 import logging
-import subprocess
 import shlex
+import os
+import sys
 
-ERROR_CODE = 1
+SUPERUSER_ID = 0
+FILE_NOT_FOUND_ERROR_CODE = 1
+SUPERUSER_ERROR_CODE = 2
 LOG = 'logs/{{{}}}.log'
 ROOT_DIR = '/'
 PRINT_COMMAND = 'find %s -type f -exec cat {} +'
@@ -24,7 +28,8 @@ COMMANDS = {'kernel_name_version'   : ['uname -rs'],
                                        PRINT_COMMAND % '/etc/logs/secure',
                                        PRINT_COMMAND % '/etc/logs/audit.log'],
             'unix distribution'     : [PRINT_COMMAND % '/etc/*release'],
-            'socket connections'    : ['ss -p'],
+            'socket connections'    : ['ss -p',
+                                       'ss -naop'],
             'processes'             : ['ps -eww'],
             'password files'        : [PRINT_COMMAND % '/etc/shadow',
                                        PRINT_COMMAND % '/etc/passwd'],
@@ -33,14 +38,22 @@ COMMANDS = {'kernel_name_version'   : ['uname -rs'],
             'x window config files' : [PRINT_COMMAND % '/etc/X11/*'],
             'yum repositories'      : [PRINT_COMMAND % '/etc/yum.repos.d/*'],
             'cached yum data files' : [LIST_COMMAND % '/var/cache/yum'],
-            'installed yum packages': ['yum list installed']}
+            'installed yum packages': ['yum list installed'],
+            'startup scripts'       : [PRINT_COMMAND % '/etc/rc.d/*',
+                                       PRINT_COMMAND % '/etc/init*'],
+            'open files'            : ['lsof -R'],
+            'ssh configuration'     : [PRINT_COMMAND % '$HOME/.ssh'],
+            'user commands'         : [LIST_COMMAND % '/usr/bin',
+                                       LIST_COMMAND % '/usr/local/bin'],
+            'process tree'          : ['pstree -alp']}
 
 
 class ArtifactCollector(object):
     def __init__(self):
-        print('HERE HERE!')
         self.logger = logging.getLogger()
         self.start_logging()
+        self.check_root_access()
+        self.call_commands()
 
     #   start_logging()
     #   Begin logging execution
@@ -49,7 +62,7 @@ class ArtifactCollector(object):
 
         formatter = logging.Formatter('%(asctime)s %(levelname)-8s- - - %(message)s')
 
-        file_handler = logging.FileHandler(LOG.replace('{{{}}}', '{date:%Y-%m-%d_%H:%M:%S}'.format(date=datetime.now())))
+        file_handler = logging.FileHandler(LOG.replace('{{{}}}', r'{date:%Y-%m-%d_%H:%M:%S}'.format(date=datetime.now())))
         file_handler.setFormatter(formatter)
         self.logger.addHandler(file_handler)
 
@@ -60,6 +73,17 @@ class ArtifactCollector(object):
 
         self.logger.info('Started execution')
 
+    # check_root_access()
+    # Checks for the runtime's effective user ID permissions, exits if not enough access to collect artifacts
+    def check_root_access(self):
+        self.logger.info('Checking effective user permissions')
+        if os.geteuid() != SUPERUSER_ID:
+            self.logger.info("Runtime does not have superuser privileges. Re-run program with sudo. Exiting...")
+            sys.exit(SUPERUSER_ERROR_CODE)
+        else:
+            self.logger.info('Confirmed superuser privileges, running...')
+            return
+
     # call_commands()
     # Function to iterate through the command dictionary and executing each command. It saves runtime information to the
     # log file and keeps track of unsuccessful commands.
@@ -68,11 +92,27 @@ class ArtifactCollector(object):
             for command in COMMANDS[section]:
                 self.logger.info(section.upper() + ' | command: ' + command)
                 try:
-                    return_code = subprocess.call(shlex.split(command))
+                    process = Popen(shlex.split(command), stdout=PIPE)
+                    output = process.stdout.read().decode('ascii')
+                    self.save_output(section, command, output)
                 except OSError as e:
-                    self.logger.warning('Unknown command: ' + e.filename)
-                except subprocess.CalledProcessError as e:
+                    self.logger.warning('Unknown command or file -  ' + str(e))
+                except CalledProcessError:
                     self.logger.warning('Could not find command!')
+                except UnicodeDecodeError:
+                    self.logger.warning('Error decoding unicode output.')
+                except AttributeError:
+                    self.logger.warning('Attribute error')
                 else:
-                    if return_code == ERROR_CODE:
+                    if process == FILE_NOT_FOUND_ERROR_CODE:
                         self.logger.warning('File does not exist, unable to run command: ' + command)
+
+    def save_output(self, section, command, output):
+        fname = os.path.join(section.replace(' ', '_'), command.replace(' ', '_').replace('/', '_') + '.txt')
+        self.logger.info('Saving output to %s' % fname)
+        if not os.path.exists(fname):
+            os.mknod(fname)
+        file = open(fname, 'w')
+        file.write(output)
+        file.close()
+        self.logger.info('Saved ./%s/%s successfully' % (section, command))
