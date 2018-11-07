@@ -9,6 +9,7 @@ SUPERUSER_ID = 0
 FILE_NOT_FOUND_ERROR_CODE = 1
 SUPERUSER_ERROR_CODE = 2
 LOG = 'logs/{{{}}}.log'
+OUTPUT_DIRECTORY = 'output/'
 ROOT_DIR = '/'
 PRINT_COMMAND = 'find %s -type f -exec cat {} +'
 LIST_COMMAND = 'find %s -type f -exec ls {} +'
@@ -93,8 +94,8 @@ class ArtifactCollector(object):
         section_directories = map(lambda x: x.replace(' ', '_'), COMMANDS)
 
         for section in section_directories:
-            if not os.path.exists(section):
-                os.mkdir(section)
+            if not os.path.exists(OUTPUT_DIRECTORY + section):
+                os.mkdir(OUTPUT_DIRECTORY + section)
                 self.logger.info('Directory %s does not exist, creating...' % section)
             else:
                 self.logger.info('Directory %s exists' % section)
@@ -123,7 +124,8 @@ class ArtifactCollector(object):
                         self.logger.warning('File does not exist, unable to run command: ' + command)
 
     def save_output(self, section, command, output):
-        fname = os.path.join(section.replace(' ', '_'), command.replace(' ', '_').replace('/', '_') + '.txt')
+        fname = os.path.join(OUTPUT_DIRECTORY + section.replace(' ', '_'), command.replace(' ', '_').replace('/', '_')
+                             + '.txt')
         self.logger.info('Saving output to %s' % fname)
         file = open(fname, 'w')
         file.write(output)

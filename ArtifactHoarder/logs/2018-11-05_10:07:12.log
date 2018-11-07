@@ -1,0 +1,100 @@
+2018-11-05 10:07:12,117 INFO    - - - Started execution
+2018-11-05 10:07:12,118 INFO    - - - Checking effective user permissions
+2018-11-05 10:07:12,118 INFO    - - - Confirmed superuser privileges, running...
+2018-11-05 10:07:12,118 INFO    - - - KERNEL_NAME_VERSION | command: uname -rs
+2018-11-05 10:07:15,549 INFO    - - - Saving output to kernel_name_version/uname_-rs.txt
+2018-11-05 10:07:55,958 INFO    - - - Saved ./kernel_name_version/uname -rs successfully
+2018-11-05 10:07:59,625 INFO    - - - KERNEL MODULES | command: lsmod
+2018-11-05 10:08:02,396 WARNING - - - Unknown command: lsmod
+2018-11-05 10:08:04,546 INFO    - - - NETWORK INTERFACES | command: ifconfig -a
+2018-11-05 10:08:12,303 INFO    - - - Saving output to network_interfaces/ifconfig_-a.txt
+2018-11-05 10:08:33,105 WARNING - - - Unknown command: network_interfaces/ifconfig_-a.txt
+2018-11-05 10:11:26,019 INFO    - - - NETWORKING INFORMATION | command: find /etc/hosts -type f -exec cat {} +
+2018-11-05 10:11:28,380 INFO    - - - Saving output to networking_information/find__etc_hosts_-type_f_-exec_cat_{}_+.txt
+2018-11-05 12:33:41,413 WARNING - - - Unknown command: networking_information/find__etc_hosts_-type_f_-exec_cat_{}_+.txt
+2018-11-05 12:33:41,423 INFO    - - - NETWORKING INFORMATION | command: find /etc/networks -type f -exec cat {} +
+2018-11-05 12:33:41,450 INFO    - - - Saving output to networking_information/find__etc_networks_-type_f_-exec_cat_{}_+.txt
+2018-11-05 12:33:41,455 INFO    - - - Saved ./networking information/find /etc/networks -type f -exec cat {} + successfully
+2018-11-05 12:33:41,458 INFO    - - - NETWORKING INFORMATION | command: find /etc/protocols -type f -exec cat {} +
+2018-11-05 12:33:41,480 INFO    - - - Saving output to networking_information/find__etc_protocols_-type_f_-exec_cat_{}_+.txt
+2018-11-05 12:33:41,484 INFO    - - - Saved ./networking information/find /etc/protocols -type f -exec cat {} + successfully
+2018-11-05 12:33:41,487 INFO    - - - NETWORKING INFORMATION | command: find /etc/ethers -type f -exec cat {} +
+2018-11-05 12:33:41,504 INFO    - - - Saving output to networking_information/find__etc_ethers_-type_f_-exec_cat_{}_+.txt
+2018-11-05 12:33:41,508 INFO    - - - Saved ./networking information/find /etc/ethers -type f -exec cat {} + successfully
+2018-11-05 12:33:41,509 INFO    - - - NETWORKING INFORMATION | command: find /etc/netgroup -type f -exec cat {} +
+2018-11-05 12:33:41,522 INFO    - - - Saving output to networking_information/find__etc_netgroup_-type_f_-exec_cat_{}_+.txt
+2018-11-05 12:33:41,526 INFO    - - - Saved ./networking information/find /etc/netgroup -type f -exec cat {} + successfully
+2018-11-05 12:33:41,528 INFO    - - - NETWORKING INFORMATION | command: find /etc/dhclients -type f -exec cat {} +
+2018-11-05 12:33:41,543 INFO    - - - Saving output to networking_information/find__etc_dhclients_-type_f_-exec_cat_{}_+.txt
+2018-11-05 12:33:41,546 INFO    - - - Saved ./networking information/find /etc/dhclients -type f -exec cat {} + successfully
+2018-11-05 12:33:41,550 INFO    - - - HOSTNAME | command: hostname
+2018-11-05 12:33:41,562 INFO    - - - Saving output to hostname/hostname.txt
+2018-11-05 12:33:41,566 INFO    - - - Saved ./hostname/hostname successfully
+2018-11-05 12:33:41,569 INFO    - - - HOSTNAME | command: find /etc/hostname -type f -exec cat {} +
+2018-11-05 12:33:41,583 INFO    - - - Saving output to hostname/find__etc_hostname_-type_f_-exec_cat_{}_+.txt
+2018-11-05 12:33:41,587 INFO    - - - Saved ./hostname/find /etc/hostname -type f -exec cat {} + successfully
+2018-11-05 12:33:41,589 INFO    - - - LOGIN HISTORY | command: last -Faixw
+2018-11-05 12:33:41,603 INFO    - - - Saving output to login_history/last_-Faixw.txt
+2018-11-05 12:33:41,607 INFO    - - - Saved ./login history/last -Faixw successfully
+2018-11-05 12:33:41,610 INFO    - - - LOGIN HISTORY | command: find /etc/logs/auth.log -type f -exec cat {} +
+2018-11-05 12:33:41,624 INFO    - - - Saving output to login_history/find__etc_logs_auth.log_-type_f_-exec_cat_{}_+.txt
+2018-11-05 12:33:41,628 INFO    - - - Saved ./login history/find /etc/logs/auth.log -type f -exec cat {} + successfully
+2018-11-05 12:33:41,630 INFO    - - - LOGIN HISTORY | command: find /etc/logs/secure -type f -exec cat {} +
+2018-11-05 12:33:41,641 INFO    - - - Saving output to login_history/find__etc_logs_secure_-type_f_-exec_cat_{}_+.txt
+2018-11-05 12:33:41,644 INFO    - - - Saved ./login history/find /etc/logs/secure -type f -exec cat {} + successfully
+2018-11-05 12:33:41,647 INFO    - - - LOGIN HISTORY | command: find /etc/logs/audit.log -type f -exec cat {} +
+2018-11-05 12:33:41,660 INFO    - - - Saving output to login_history/find__etc_logs_audit.log_-type_f_-exec_cat_{}_+.txt
+2018-11-05 12:33:41,663 INFO    - - - Saved ./login history/find /etc/logs/audit.log -type f -exec cat {} + successfully
+2018-11-05 12:33:41,666 INFO    - - - UNIX DISTRIBUTION | command: find /etc/*release -type f -exec cat {} +
+2018-11-05 12:33:41,679 INFO    - - - Saving output to unix_distribution/find__etc_*release_-type_f_-exec_cat_{}_+.txt
+2018-11-05 12:33:41,683 INFO    - - - Saved ./unix distribution/find /etc/*release -type f -exec cat {} + successfully
+2018-11-05 12:33:41,686 INFO    - - - SOCKET CONNECTIONS | command: ss -p
+2018-11-05 12:33:41,696 WARNING - - - Unknown command: ss
+2018-11-05 12:33:41,702 INFO    - - - SOCKET CONNECTIONS | command: ss -naop
+2018-11-05 12:33:41,715 WARNING - - - Unknown command: ss
+2018-11-05 12:33:41,718 INFO    - - - PROCESSES | command: ps -eww
+2018-11-05 12:33:41,782 INFO    - - - Saving output to processes/ps_-eww.txt
+2018-11-05 12:33:41,786 INFO    - - - Saved ./processes/ps -eww successfully
+2018-11-05 12:33:41,787 INFO    - - - PASSWORD FILES | command: find /etc/shadow -type f -exec cat {} +
+2018-11-05 12:33:41,799 INFO    - - - Saving output to password_files/find__etc_shadow_-type_f_-exec_cat_{}_+.txt
+2018-11-05 12:33:41,802 INFO    - - - Saved ./password files/find /etc/shadow -type f -exec cat {} + successfully
+2018-11-05 12:33:41,805 INFO    - - - PASSWORD FILES | command: find /etc/passwd -type f -exec cat {} +
+2018-11-05 12:33:41,821 INFO    - - - Saving output to password_files/find__etc_passwd_-type_f_-exec_cat_{}_+.txt
+2018-11-05 12:33:41,825 INFO    - - - Saved ./password files/find /etc/passwd -type f -exec cat {} + successfully
+2018-11-05 12:33:41,828 INFO    - - - SCHEDULED JOBS | command: find /etc/cron* -type f -exec cat {} +
+2018-11-05 12:33:41,840 INFO    - - - Saving output to scheduled_jobs/find__etc_cron*_-type_f_-exec_cat_{}_+.txt
+2018-11-05 12:33:41,845 INFO    - - - Saved ./scheduled jobs/find /etc/cron* -type f -exec cat {} + successfully
+2018-11-05 12:33:41,848 INFO    - - - SCHEDULED JOBS | command: find /var/spool/cron/* -type f -exec cat {} +
+2018-11-05 12:33:41,859 INFO    - - - Saving output to scheduled_jobs/find__var_spool_cron_*_-type_f_-exec_cat_{}_+.txt
+2018-11-05 12:33:41,863 INFO    - - - Saved ./scheduled jobs/find /var/spool/cron/* -type f -exec cat {} + successfully
+2018-11-05 12:33:41,866 INFO    - - - X WINDOW CONFIG FILES | command: find /etc/X11/* -type f -exec cat {} +
+2018-11-05 12:33:41,879 INFO    - - - Saving output to x_window_config_files/find__etc_X11_*_-type_f_-exec_cat_{}_+.txt
+2018-11-05 12:33:41,882 INFO    - - - Saved ./x window config files/find /etc/X11/* -type f -exec cat {} + successfully
+2018-11-05 12:33:41,886 INFO    - - - YUM REPOSITORIES | command: find /etc/yum.repos.d/* -type f -exec cat {} +
+2018-11-05 12:33:41,900 INFO    - - - Saving output to yum_repositories/find__etc_yum.repos.d_*_-type_f_-exec_cat_{}_+.txt
+2018-11-05 12:33:41,904 INFO    - - - Saved ./yum repositories/find /etc/yum.repos.d/* -type f -exec cat {} + successfully
+2018-11-05 12:33:41,907 INFO    - - - CACHED YUM DATA FILES | command: find /var/cache/yum -type f -exec ls {} +
+2018-11-05 12:33:41,921 INFO    - - - Saving output to cached_yum_data_files/find__var_cache_yum_-type_f_-exec_ls_{}_+.txt
+2018-11-05 12:33:41,925 INFO    - - - Saved ./cached yum data files/find /var/cache/yum -type f -exec ls {} + successfully
+2018-11-05 12:33:41,928 INFO    - - - INSTALLED YUM PACKAGES | command: yum list installed
+2018-11-05 12:33:41,944 WARNING - - - Unknown command: yum
+2018-11-05 12:33:41,948 INFO    - - - STARTUP SCRIPTS | command: find /etc/rc.d/* -type f -exec cat {} +
+2018-11-05 12:33:41,965 INFO    - - - Saving output to startup_scripts/find__etc_rc.d_*_-type_f_-exec_cat_{}_+.txt
+2018-11-05 12:33:41,969 INFO    - - - Saved ./startup scripts/find /etc/rc.d/* -type f -exec cat {} + successfully
+2018-11-05 12:33:41,971 INFO    - - - STARTUP SCRIPTS | command: find /etc/init* -type f -exec cat {} +
+2018-11-05 12:33:41,987 INFO    - - - Saving output to startup_scripts/find__etc_init*_-type_f_-exec_cat_{}_+.txt
+2018-11-05 12:33:41,992 INFO    - - - Saved ./startup scripts/find /etc/init* -type f -exec cat {} + successfully
+2018-11-05 12:33:41,995 INFO    - - - OPEN FILES | command: lsof -R
+2018-11-05 12:45:14,302 INFO    - - - Saving output to open_files/lsof_-R.txt
+2018-11-05 12:45:14,307 INFO    - - - Saved ./open files/lsof -R successfully
+2018-11-05 12:45:14,310 INFO    - - - SSH CONFIGURATION | command: find $HOME/.ssh -type f -exec cat {} +
+2018-11-05 12:45:14,322 INFO    - - - Saving output to ssh_configuration/find_$HOME_.ssh_-type_f_-exec_cat_{}_+.txt
+2018-11-05 12:45:14,325 INFO    - - - Saved ./ssh configuration/find $HOME/.ssh -type f -exec cat {} + successfully
+2018-11-05 12:45:14,327 INFO    - - - USER COMMANDS | command: find /usr/bin -type f -exec ls {} +
+2018-11-05 12:45:14,357 INFO    - - - Saving output to user_commands/find__usr_bin_-type_f_-exec_ls_{}_+.txt
+2018-11-05 12:45:14,360 INFO    - - - Saved ./user commands/find /usr/bin -type f -exec ls {} + successfully
+2018-11-05 12:45:14,363 INFO    - - - USER COMMANDS | command: find /usr/local/bin -type f -exec ls {} +
+2018-11-05 12:45:14,380 INFO    - - - Saving output to user_commands/find__usr_local_bin_-type_f_-exec_ls_{}_+.txt
+2018-11-05 12:45:14,382 INFO    - - - Saved ./user commands/find /usr/local/bin -type f -exec ls {} + successfully
+2018-11-05 12:45:14,384 INFO    - - - PROCESS TREE | command: pstree -alp
+2018-11-05 12:45:14,393 WARNING - - - Unknown command: pstree

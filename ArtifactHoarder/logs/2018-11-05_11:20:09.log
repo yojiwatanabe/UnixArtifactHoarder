@@ -1,0 +1,121 @@
+2018-11-05 11:20:09,028 INFO    - - - Started execution
+2018-11-05 11:20:09,029 INFO    - - - Checking effective user permissions
+2018-11-05 11:20:09,029 INFO    - - - Confirmed superuser privileges, running...
+2018-11-05 11:20:09,029 INFO    - - - Checking directory structure...
+2018-11-05 11:20:09,029 INFO    - - - Directory %s exists
+2018-11-05 11:20:09,029 INFO    - - - Directory %s does not exist, creating...
+2018-11-05 11:20:09,029 INFO    - - - Directory %s does not exist, creating...
+2018-11-05 11:20:09,029 INFO    - - - Directory %s does not exist, creating...
+2018-11-05 11:20:09,030 INFO    - - - Directory %s does not exist, creating...
+2018-11-05 11:20:09,030 INFO    - - - Directory %s does not exist, creating...
+2018-11-05 11:20:09,030 INFO    - - - Directory %s does not exist, creating...
+2018-11-05 11:20:09,030 INFO    - - - Directory %s does not exist, creating...
+2018-11-05 11:20:09,030 INFO    - - - Directory %s does not exist, creating...
+2018-11-05 11:20:09,030 INFO    - - - Directory %s does not exist, creating...
+2018-11-05 11:20:09,030 INFO    - - - Directory %s does not exist, creating...
+2018-11-05 11:20:09,031 INFO    - - - Directory %s does not exist, creating...
+2018-11-05 11:20:09,031 INFO    - - - Directory %s does not exist, creating...
+2018-11-05 11:20:09,031 INFO    - - - Directory %s does not exist, creating...
+2018-11-05 11:20:09,031 INFO    - - - Directory %s does not exist, creating...
+2018-11-05 11:20:09,031 INFO    - - - Directory %s does not exist, creating...
+2018-11-05 11:20:09,031 INFO    - - - Directory %s does not exist, creating...
+2018-11-05 11:20:09,032 INFO    - - - Directory %s does not exist, creating...
+2018-11-05 11:20:09,032 INFO    - - - Directory %s does not exist, creating...
+2018-11-05 11:20:09,032 INFO    - - - Directory %s does not exist, creating...
+2018-11-05 11:20:09,032 INFO    - - - KERNEL_NAME_VERSION | command: uname -rs
+2018-11-05 11:20:09,036 INFO    - - - Saving output to kernel_name_version/uname_-rs.txt
+2018-11-05 11:20:09,037 INFO    - - - Saved ./kernel_name_version/uname -rs successfully
+2018-11-05 11:20:09,037 INFO    - - - KERNEL MODULES | command: lsmod
+2018-11-05 11:20:09,040 WARNING - - - Unknown command or file -  [Errno 2] No such file or directory: 'lsmod': 'lsmod'
+2018-11-05 11:20:09,040 INFO    - - - NETWORK INTERFACES | command: ifconfig -a
+2018-11-05 11:20:09,047 INFO    - - - Saving output to network_interfaces/ifconfig_-a.txt
+2018-11-05 11:20:09,047 WARNING - - - Unknown command or file -  [Errno 2] No such file or directory
+2018-11-05 11:20:09,047 INFO    - - - NETWORKING INFORMATION | command: find /etc/hosts -type f -exec cat {} +
+2018-11-05 11:20:09,054 INFO    - - - Saving output to networking_information/find__etc_hosts_-type_f_-exec_cat_{}_+.txt
+2018-11-05 11:20:09,054 WARNING - - - Unknown command or file -  [Errno 2] No such file or directory
+2018-11-05 11:20:09,054 INFO    - - - NETWORKING INFORMATION | command: find /etc/networks -type f -exec cat {} +
+2018-11-05 11:20:09,060 INFO    - - - Saving output to networking_information/find__etc_networks_-type_f_-exec_cat_{}_+.txt
+2018-11-05 11:20:09,061 WARNING - - - Unknown command or file -  [Errno 2] No such file or directory
+2018-11-05 11:20:09,061 INFO    - - - NETWORKING INFORMATION | command: find /etc/protocols -type f -exec cat {} +
+2018-11-05 11:20:09,067 INFO    - - - Saving output to networking_information/find__etc_protocols_-type_f_-exec_cat_{}_+.txt
+2018-11-05 11:20:09,067 WARNING - - - Unknown command or file -  [Errno 2] No such file or directory
+2018-11-05 11:20:09,067 INFO    - - - NETWORKING INFORMATION | command: find /etc/ethers -type f -exec cat {} +
+2018-11-05 11:20:09,071 INFO    - - - Saving output to networking_information/find__etc_ethers_-type_f_-exec_cat_{}_+.txt
+2018-11-05 11:20:09,072 WARNING - - - Unknown command or file -  [Errno 2] No such file or directory
+2018-11-05 11:20:09,072 INFO    - - - NETWORKING INFORMATION | command: find /etc/netgroup -type f -exec cat {} +
+2018-11-05 11:20:09,076 INFO    - - - Saving output to networking_information/find__etc_netgroup_-type_f_-exec_cat_{}_+.txt
+2018-11-05 11:20:09,076 WARNING - - - Unknown command or file -  [Errno 2] No such file or directory
+2018-11-05 11:20:09,076 INFO    - - - NETWORKING INFORMATION | command: find /etc/dhclients -type f -exec cat {} +
+2018-11-05 11:20:09,080 INFO    - - - Saving output to networking_information/find__etc_dhclients_-type_f_-exec_cat_{}_+.txt
+2018-11-05 11:20:09,081 WARNING - - - Unknown command or file -  [Errno 2] No such file or directory
+2018-11-05 11:20:09,081 INFO    - - - HOSTNAME | command: hostname
+2018-11-05 11:20:09,084 INFO    - - - Saving output to hostname/hostname.txt
+2018-11-05 11:20:09,085 WARNING - - - Unknown command or file -  [Errno 22] Invalid argument
+2018-11-05 11:20:09,085 INFO    - - - HOSTNAME | command: find /etc/hostname -type f -exec cat {} +
+2018-11-05 11:20:09,089 INFO    - - - Saving output to hostname/find__etc_hostname_-type_f_-exec_cat_{}_+.txt
+2018-11-05 11:20:09,089 WARNING - - - Unknown command or file -  [Errno 22] Invalid argument
+2018-11-05 11:20:09,089 INFO    - - - LOGIN HISTORY | command: last -Faixw
+2018-11-05 11:20:09,093 INFO    - - - Saving output to login_history/last_-Faixw.txt
+2018-11-05 11:20:09,093 WARNING - - - Unknown command or file -  [Errno 2] No such file or directory
+2018-11-05 11:20:09,093 INFO    - - - LOGIN HISTORY | command: find /etc/logs/auth.log -type f -exec cat {} +
+2018-11-05 11:20:09,097 INFO    - - - Saving output to login_history/find__etc_logs_auth.log_-type_f_-exec_cat_{}_+.txt
+2018-11-05 11:20:09,098 WARNING - - - Unknown command or file -  [Errno 2] No such file or directory
+2018-11-05 11:20:09,098 INFO    - - - LOGIN HISTORY | command: find /etc/logs/secure -type f -exec cat {} +
+2018-11-05 11:20:09,102 INFO    - - - Saving output to login_history/find__etc_logs_secure_-type_f_-exec_cat_{}_+.txt
+2018-11-05 11:20:09,102 WARNING - - - Unknown command or file -  [Errno 2] No such file or directory
+2018-11-05 11:20:09,102 INFO    - - - LOGIN HISTORY | command: find /etc/logs/audit.log -type f -exec cat {} +
+2018-11-05 11:20:09,106 INFO    - - - Saving output to login_history/find__etc_logs_audit.log_-type_f_-exec_cat_{}_+.txt
+2018-11-05 11:20:09,107 WARNING - - - Unknown command or file -  [Errno 2] No such file or directory
+2018-11-05 11:20:09,107 INFO    - - - UNIX DISTRIBUTION | command: find /etc/*release -type f -exec cat {} +
+2018-11-05 11:20:09,111 INFO    - - - Saving output to unix_distribution/find__etc_*release_-type_f_-exec_cat_{}_+.txt
+2018-11-05 11:20:09,111 WARNING - - - Unknown command or file -  [Errno 2] No such file or directory
+2018-11-05 11:20:09,111 INFO    - - - SOCKET CONNECTIONS | command: ss -p
+2018-11-05 11:20:09,114 WARNING - - - Unknown command or file -  [Errno 2] No such file or directory: 'ss': 'ss'
+2018-11-05 11:20:09,114 INFO    - - - SOCKET CONNECTIONS | command: ss -naop
+2018-11-05 11:20:09,117 WARNING - - - Unknown command or file -  [Errno 2] No such file or directory: 'ss': 'ss'
+2018-11-05 11:20:09,117 INFO    - - - PROCESSES | command: ps -eww
+2018-11-05 11:20:09,170 INFO    - - - Saving output to processes/ps_-eww.txt
+2018-11-05 11:20:09,171 WARNING - - - Unknown command or file -  [Errno 22] Invalid argument
+2018-11-05 11:20:09,171 INFO    - - - PASSWORD FILES | command: find /etc/shadow -type f -exec cat {} +
+2018-11-05 11:20:09,175 INFO    - - - Saving output to password_files/find__etc_shadow_-type_f_-exec_cat_{}_+.txt
+2018-11-05 11:20:09,175 WARNING - - - Unknown command or file -  [Errno 2] No such file or directory
+2018-11-05 11:20:09,175 INFO    - - - PASSWORD FILES | command: find /etc/passwd -type f -exec cat {} +
+2018-11-05 11:20:09,181 INFO    - - - Saving output to password_files/find__etc_passwd_-type_f_-exec_cat_{}_+.txt
+2018-11-05 11:20:09,182 WARNING - - - Unknown command or file -  [Errno 2] No such file or directory
+2018-11-05 11:20:09,182 INFO    - - - SCHEDULED JOBS | command: find /etc/cron* -type f -exec cat {} +
+2018-11-05 11:20:09,186 INFO    - - - Saving output to scheduled_jobs/find__etc_cron*_-type_f_-exec_cat_{}_+.txt
+2018-11-05 11:20:09,186 WARNING - - - Unknown command or file -  [Errno 2] No such file or directory
+2018-11-05 11:20:09,186 INFO    - - - SCHEDULED JOBS | command: find /var/spool/cron/* -type f -exec cat {} +
+2018-11-05 11:20:09,190 INFO    - - - Saving output to scheduled_jobs/find__var_spool_cron_*_-type_f_-exec_cat_{}_+.txt
+2018-11-05 11:20:09,190 WARNING - - - Unknown command or file -  [Errno 2] No such file or directory
+2018-11-05 11:20:09,190 INFO    - - - X WINDOW CONFIG FILES | command: find /etc/X11/* -type f -exec cat {} +
+2018-11-05 11:20:09,194 INFO    - - - Saving output to x_window_config_files/find__etc_X11_*_-type_f_-exec_cat_{}_+.txt
+2018-11-05 11:20:09,195 WARNING - - - Unknown command or file -  [Errno 2] No such file or directory
+2018-11-05 11:20:09,195 INFO    - - - YUM REPOSITORIES | command: find /etc/yum.repos.d/* -type f -exec cat {} +
+2018-11-05 11:20:09,199 INFO    - - - Saving output to yum_repositories/find__etc_yum.repos.d_*_-type_f_-exec_cat_{}_+.txt
+2018-11-05 11:20:09,199 WARNING - - - Unknown command or file -  [Errno 2] No such file or directory
+2018-11-05 11:20:09,199 INFO    - - - CACHED YUM DATA FILES | command: find /var/cache/yum -type f -exec ls {} +
+2018-11-05 11:20:09,203 INFO    - - - Saving output to cached_yum_data_files/find__var_cache_yum_-type_f_-exec_ls_{}_+.txt
+2018-11-05 11:20:09,204 WARNING - - - Unknown command or file -  [Errno 2] No such file or directory
+2018-11-05 11:20:09,204 INFO    - - - INSTALLED YUM PACKAGES | command: yum list installed
+2018-11-05 11:20:09,206 WARNING - - - Unknown command or file -  [Errno 2] No such file or directory: 'yum': 'yum'
+2018-11-05 11:20:09,207 INFO    - - - STARTUP SCRIPTS | command: find /etc/rc.d/* -type f -exec cat {} +
+2018-11-05 11:20:09,211 INFO    - - - Saving output to startup_scripts/find__etc_rc.d_*_-type_f_-exec_cat_{}_+.txt
+2018-11-05 11:20:09,211 WARNING - - - Unknown command or file -  [Errno 2] No such file or directory
+2018-11-05 11:20:09,211 INFO    - - - STARTUP SCRIPTS | command: find /etc/init* -type f -exec cat {} +
+2018-11-05 11:20:09,215 INFO    - - - Saving output to startup_scripts/find__etc_init*_-type_f_-exec_cat_{}_+.txt
+2018-11-05 11:20:09,215 WARNING - - - Unknown command or file -  [Errno 2] No such file or directory
+2018-11-05 11:20:09,215 INFO    - - - OPEN FILES | command: lsof -R
+2018-11-05 11:20:31,601 INFO    - - - Saving output to open_files/lsof_-R.txt
+2018-11-05 11:20:31,602 WARNING - - - Unknown command or file -  [Errno 2] No such file or directory
+2018-11-05 11:20:31,602 INFO    - - - SSH CONFIGURATION | command: find $HOME/.ssh -type f -exec cat {} +
+2018-11-05 11:20:31,606 INFO    - - - Saving output to ssh_configuration/find_$HOME_.ssh_-type_f_-exec_cat_{}_+.txt
+2018-11-05 11:20:31,606 WARNING - - - Unknown command or file -  [Errno 2] No such file or directory
+2018-11-05 11:20:31,606 INFO    - - - USER COMMANDS | command: find /usr/bin -type f -exec ls {} +
+2018-11-05 11:20:31,625 INFO    - - - Saving output to user_commands/find__usr_bin_-type_f_-exec_ls_{}_+.txt
+2018-11-05 11:20:31,625 WARNING - - - Unknown command or file -  [Errno 2] No such file or directory
+2018-11-05 11:20:31,625 INFO    - - - USER COMMANDS | command: find /usr/local/bin -type f -exec ls {} +
+2018-11-05 11:20:31,634 INFO    - - - Saving output to user_commands/find__usr_local_bin_-type_f_-exec_ls_{}_+.txt
+2018-11-05 11:20:31,635 WARNING - - - Unknown command or file -  [Errno 2] No such file or directory
+2018-11-05 11:20:31,635 INFO    - - - PROCESS TREE | command: pstree -alp
+2018-11-05 11:20:31,638 WARNING - - - Unknown command or file -  [Errno 2] No such file or directory: 'pstree': 'pstree'

@@ -1,0 +1,121 @@
+2018-11-07 10:47:47,331 INFO    - - - Started execution
+2018-11-07 10:47:47,331 INFO    - - - Checking effective user permissions
+2018-11-07 10:47:47,331 INFO    - - - Confirmed superuser privileges, running...
+2018-11-07 10:47:47,332 INFO    - - - Checking directory structure...
+2018-11-07 10:47:47,332 INFO    - - - Directory kernel_name_version exists
+2018-11-07 10:47:47,332 INFO    - - - Directory kernel_modules exists
+2018-11-07 10:47:47,332 INFO    - - - Directory network_interfaces exists
+2018-11-07 10:47:47,332 INFO    - - - Directory networking_information exists
+2018-11-07 10:47:47,332 INFO    - - - Directory hostname exists
+2018-11-07 10:47:47,332 INFO    - - - Directory login_history exists
+2018-11-07 10:47:47,332 INFO    - - - Directory unix_distribution exists
+2018-11-07 10:47:47,332 INFO    - - - Directory socket_connections exists
+2018-11-07 10:47:47,332 INFO    - - - Directory processes exists
+2018-11-07 10:47:47,332 INFO    - - - Directory password_files exists
+2018-11-07 10:47:47,332 INFO    - - - Directory scheduled_jobs exists
+2018-11-07 10:47:47,333 INFO    - - - Directory x_window_config_files exists
+2018-11-07 10:47:47,333 INFO    - - - Directory yum_repositories exists
+2018-11-07 10:47:47,333 INFO    - - - Directory cached_yum_data_files exists
+2018-11-07 10:47:47,333 INFO    - - - Directory installed_yum_packages exists
+2018-11-07 10:47:47,333 INFO    - - - Directory startup_scripts exists
+2018-11-07 10:47:47,333 INFO    - - - Directory open_files exists
+2018-11-07 10:47:47,333 INFO    - - - Directory ssh_configuration exists
+2018-11-07 10:47:47,333 INFO    - - - Directory user_commands exists
+2018-11-07 10:47:47,333 INFO    - - - Directory process_tree exists
+2018-11-07 10:47:47,333 INFO    - - - KERNEL_NAME_VERSION | command: uname -rs
+2018-11-07 10:47:47,337 INFO    - - - Saving output to output/kernel_name_version/uname_-rs.txt
+2018-11-07 10:47:47,338 INFO    - - - Saved ./kernel_name_version/uname -rs successfully
+2018-11-07 10:47:47,338 INFO    - - - KERNEL MODULES | command: lsmod
+2018-11-07 10:47:47,341 WARNING - - - Unknown command or file -  [Errno 2] No such file or directory: 'lsmod': 'lsmod'
+2018-11-07 10:47:47,341 INFO    - - - NETWORK INTERFACES | command: ifconfig -a
+2018-11-07 10:47:47,347 INFO    - - - Saving output to output/network_interfaces/ifconfig_-a.txt
+2018-11-07 10:47:47,348 INFO    - - - Saved ./network interfaces/ifconfig -a successfully
+2018-11-07 10:47:47,348 INFO    - - - NETWORKING INFORMATION | command: find /etc/hosts -type f -exec cat {} +
+2018-11-07 10:47:47,353 INFO    - - - Saving output to output/networking_information/find__etc_hosts_-type_f_-exec_cat_{}_+.txt
+2018-11-07 10:47:47,354 INFO    - - - Saved ./networking information/find /etc/hosts -type f -exec cat {} + successfully
+2018-11-07 10:47:47,354 INFO    - - - NETWORKING INFORMATION | command: find /etc/networks -type f -exec cat {} +
+2018-11-07 10:47:47,360 INFO    - - - Saving output to output/networking_information/find__etc_networks_-type_f_-exec_cat_{}_+.txt
+2018-11-07 10:47:47,360 INFO    - - - Saved ./networking information/find /etc/networks -type f -exec cat {} + successfully
+2018-11-07 10:47:47,360 INFO    - - - NETWORKING INFORMATION | command: find /etc/protocols -type f -exec cat {} +
+2018-11-07 10:47:47,366 INFO    - - - Saving output to output/networking_information/find__etc_protocols_-type_f_-exec_cat_{}_+.txt
+2018-11-07 10:47:47,366 INFO    - - - Saved ./networking information/find /etc/protocols -type f -exec cat {} + successfully
+2018-11-07 10:47:47,366 INFO    - - - NETWORKING INFORMATION | command: find /etc/ethers -type f -exec cat {} +
+2018-11-07 10:47:47,370 INFO    - - - Saving output to output/networking_information/find__etc_ethers_-type_f_-exec_cat_{}_+.txt
+2018-11-07 10:47:47,370 INFO    - - - Saved ./networking information/find /etc/ethers -type f -exec cat {} + successfully
+2018-11-07 10:47:47,371 INFO    - - - NETWORKING INFORMATION | command: find /etc/netgroup -type f -exec cat {} +
+2018-11-07 10:47:47,374 INFO    - - - Saving output to output/networking_information/find__etc_netgroup_-type_f_-exec_cat_{}_+.txt
+2018-11-07 10:47:47,375 INFO    - - - Saved ./networking information/find /etc/netgroup -type f -exec cat {} + successfully
+2018-11-07 10:47:47,375 INFO    - - - NETWORKING INFORMATION | command: find /etc/dhclients -type f -exec cat {} +
+2018-11-07 10:47:47,378 INFO    - - - Saving output to output/networking_information/find__etc_dhclients_-type_f_-exec_cat_{}_+.txt
+2018-11-07 10:47:47,379 INFO    - - - Saved ./networking information/find /etc/dhclients -type f -exec cat {} + successfully
+2018-11-07 10:47:47,379 INFO    - - - HOSTNAME | command: hostname
+2018-11-07 10:47:47,382 INFO    - - - Saving output to output/hostname/hostname.txt
+2018-11-07 10:47:47,383 INFO    - - - Saved ./hostname/hostname successfully
+2018-11-07 10:47:47,383 INFO    - - - HOSTNAME | command: find /etc/hostname -type f -exec cat {} +
+2018-11-07 10:47:47,387 INFO    - - - Saving output to output/hostname/find__etc_hostname_-type_f_-exec_cat_{}_+.txt
+2018-11-07 10:47:47,387 INFO    - - - Saved ./hostname/find /etc/hostname -type f -exec cat {} + successfully
+2018-11-07 10:47:47,387 INFO    - - - LOGIN HISTORY | command: last -Faixw
+2018-11-07 10:47:47,390 INFO    - - - Saving output to output/login_history/last_-Faixw.txt
+2018-11-07 10:47:47,391 INFO    - - - Saved ./login history/last -Faixw successfully
+2018-11-07 10:47:47,391 INFO    - - - LOGIN HISTORY | command: find /etc/logs/auth.log -type f -exec cat {} +
+2018-11-07 10:47:47,395 INFO    - - - Saving output to output/login_history/find__etc_logs_auth.log_-type_f_-exec_cat_{}_+.txt
+2018-11-07 10:47:47,395 INFO    - - - Saved ./login history/find /etc/logs/auth.log -type f -exec cat {} + successfully
+2018-11-07 10:47:47,395 INFO    - - - LOGIN HISTORY | command: find /etc/logs/secure -type f -exec cat {} +
+2018-11-07 10:47:47,399 INFO    - - - Saving output to output/login_history/find__etc_logs_secure_-type_f_-exec_cat_{}_+.txt
+2018-11-07 10:47:47,399 INFO    - - - Saved ./login history/find /etc/logs/secure -type f -exec cat {} + successfully
+2018-11-07 10:47:47,399 INFO    - - - LOGIN HISTORY | command: find /etc/logs/audit.log -type f -exec cat {} +
+2018-11-07 10:47:47,403 INFO    - - - Saving output to output/login_history/find__etc_logs_audit.log_-type_f_-exec_cat_{}_+.txt
+2018-11-07 10:47:47,403 INFO    - - - Saved ./login history/find /etc/logs/audit.log -type f -exec cat {} + successfully
+2018-11-07 10:47:47,403 INFO    - - - UNIX DISTRIBUTION | command: find /etc/*release -type f -exec cat {} +
+2018-11-07 10:47:47,407 INFO    - - - Saving output to output/unix_distribution/find__etc_*release_-type_f_-exec_cat_{}_+.txt
+2018-11-07 10:47:47,407 INFO    - - - Saved ./unix distribution/find /etc/*release -type f -exec cat {} + successfully
+2018-11-07 10:47:47,407 INFO    - - - SOCKET CONNECTIONS | command: ss -p
+2018-11-07 10:47:47,410 WARNING - - - Unknown command or file -  [Errno 2] No such file or directory: 'ss': 'ss'
+2018-11-07 10:47:47,410 INFO    - - - SOCKET CONNECTIONS | command: ss -naop
+2018-11-07 10:47:47,413 WARNING - - - Unknown command or file -  [Errno 2] No such file or directory: 'ss': 'ss'
+2018-11-07 10:47:47,413 INFO    - - - PROCESSES | command: ps -eww
+2018-11-07 10:47:47,459 INFO    - - - Saving output to output/processes/ps_-eww.txt
+2018-11-07 10:47:47,459 INFO    - - - Saved ./processes/ps -eww successfully
+2018-11-07 10:47:47,459 INFO    - - - PASSWORD FILES | command: find /etc/shadow -type f -exec cat {} +
+2018-11-07 10:47:47,463 INFO    - - - Saving output to output/password_files/find__etc_shadow_-type_f_-exec_cat_{}_+.txt
+2018-11-07 10:47:47,463 INFO    - - - Saved ./password files/find /etc/shadow -type f -exec cat {} + successfully
+2018-11-07 10:47:47,464 INFO    - - - PASSWORD FILES | command: find /etc/passwd -type f -exec cat {} +
+2018-11-07 10:47:47,469 INFO    - - - Saving output to output/password_files/find__etc_passwd_-type_f_-exec_cat_{}_+.txt
+2018-11-07 10:47:47,470 INFO    - - - Saved ./password files/find /etc/passwd -type f -exec cat {} + successfully
+2018-11-07 10:47:47,470 INFO    - - - SCHEDULED JOBS | command: find /etc/cron* -type f -exec cat {} +
+2018-11-07 10:47:47,474 INFO    - - - Saving output to output/scheduled_jobs/find__etc_cron*_-type_f_-exec_cat_{}_+.txt
+2018-11-07 10:47:47,474 INFO    - - - Saved ./scheduled jobs/find /etc/cron* -type f -exec cat {} + successfully
+2018-11-07 10:47:47,474 INFO    - - - SCHEDULED JOBS | command: find /var/spool/cron/* -type f -exec cat {} +
+2018-11-07 10:47:47,478 INFO    - - - Saving output to output/scheduled_jobs/find__var_spool_cron_*_-type_f_-exec_cat_{}_+.txt
+2018-11-07 10:47:47,478 INFO    - - - Saved ./scheduled jobs/find /var/spool/cron/* -type f -exec cat {} + successfully
+2018-11-07 10:47:47,478 INFO    - - - X WINDOW CONFIG FILES | command: find /etc/X11/* -type f -exec cat {} +
+2018-11-07 10:47:47,482 INFO    - - - Saving output to output/x_window_config_files/find__etc_X11_*_-type_f_-exec_cat_{}_+.txt
+2018-11-07 10:47:47,482 INFO    - - - Saved ./x window config files/find /etc/X11/* -type f -exec cat {} + successfully
+2018-11-07 10:47:47,482 INFO    - - - YUM REPOSITORIES | command: find /etc/yum.repos.d/* -type f -exec cat {} +
+2018-11-07 10:47:47,486 INFO    - - - Saving output to output/yum_repositories/find__etc_yum.repos.d_*_-type_f_-exec_cat_{}_+.txt
+2018-11-07 10:47:47,487 INFO    - - - Saved ./yum repositories/find /etc/yum.repos.d/* -type f -exec cat {} + successfully
+2018-11-07 10:47:47,487 INFO    - - - CACHED YUM DATA FILES | command: find /var/cache/yum -type f -exec ls {} +
+2018-11-07 10:47:47,491 INFO    - - - Saving output to output/cached_yum_data_files/find__var_cache_yum_-type_f_-exec_ls_{}_+.txt
+2018-11-07 10:47:47,491 INFO    - - - Saved ./cached yum data files/find /var/cache/yum -type f -exec ls {} + successfully
+2018-11-07 10:47:47,491 INFO    - - - INSTALLED YUM PACKAGES | command: yum list installed
+2018-11-07 10:47:47,494 WARNING - - - Unknown command or file -  [Errno 2] No such file or directory: 'yum': 'yum'
+2018-11-07 10:47:47,495 INFO    - - - STARTUP SCRIPTS | command: find /etc/rc.d/* -type f -exec cat {} +
+2018-11-07 10:47:47,499 INFO    - - - Saving output to output/startup_scripts/find__etc_rc.d_*_-type_f_-exec_cat_{}_+.txt
+2018-11-07 10:47:47,500 INFO    - - - Saved ./startup scripts/find /etc/rc.d/* -type f -exec cat {} + successfully
+2018-11-07 10:47:47,500 INFO    - - - STARTUP SCRIPTS | command: find /etc/init* -type f -exec cat {} +
+2018-11-07 10:47:47,503 INFO    - - - Saving output to output/startup_scripts/find__etc_init*_-type_f_-exec_cat_{}_+.txt
+2018-11-07 10:47:47,504 INFO    - - - Saved ./startup scripts/find /etc/init* -type f -exec cat {} + successfully
+2018-11-07 10:47:47,504 INFO    - - - OPEN FILES | command: lsof -R
+2018-11-07 10:48:11,697 INFO    - - - Saving output to output/open_files/lsof_-R.txt
+2018-11-07 10:48:11,700 INFO    - - - Saved ./open files/lsof -R successfully
+2018-11-07 10:48:11,700 INFO    - - - SSH CONFIGURATION | command: find $HOME/.ssh -type f -exec cat {} +
+2018-11-07 10:48:11,704 INFO    - - - Saving output to output/ssh_configuration/find_$HOME_.ssh_-type_f_-exec_cat_{}_+.txt
+2018-11-07 10:48:11,705 INFO    - - - Saved ./ssh configuration/find $HOME/.ssh -type f -exec cat {} + successfully
+2018-11-07 10:48:11,705 INFO    - - - USER COMMANDS | command: find /usr/bin -type f -exec ls {} +
+2018-11-07 10:48:11,725 INFO    - - - Saving output to output/user_commands/find__usr_bin_-type_f_-exec_ls_{}_+.txt
+2018-11-07 10:48:11,726 INFO    - - - Saved ./user commands/find /usr/bin -type f -exec ls {} + successfully
+2018-11-07 10:48:11,726 INFO    - - - USER COMMANDS | command: find /usr/local/bin -type f -exec ls {} +
+2018-11-07 10:48:11,735 INFO    - - - Saving output to output/user_commands/find__usr_local_bin_-type_f_-exec_ls_{}_+.txt
+2018-11-07 10:48:11,736 INFO    - - - Saved ./user commands/find /usr/local/bin -type f -exec ls {} + successfully
+2018-11-07 10:48:11,736 INFO    - - - PROCESS TREE | command: pstree -alp
+2018-11-07 10:48:11,739 WARNING - - - Unknown command or file -  [Errno 2] No such file or directory: 'pstree': 'pstree'

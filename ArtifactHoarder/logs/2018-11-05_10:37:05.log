@@ -1,0 +1,55 @@
+2018-11-05 10:37:05,467 INFO    - - - Started execution
+2018-11-05 10:37:05,467 INFO    - - - Checking effective user permissions
+2018-11-05 10:37:05,467 INFO    - - - Confirmed superuser privileges, running...
+2018-11-05 10:37:05,467 INFO    - - - SSH CONFIGURATION | command: find $HOME/.ssh -type f -exec cat {} +
+2018-11-05 10:37:05,475 INFO    - - - Saving output to ssh_configuration/find_$HOME_.ssh_-type_f_-exec_cat_{}_+.txt
+2018-11-05 10:37:05,475 WARNING - - - Unknown command or file -  [Errno 2] No such file or directory
+2018-11-05 10:37:05,475 INFO    - - - YUM REPOSITORIES | command: find /etc/yum.repos.d/* -type f -exec cat {} +
+2018-11-05 10:37:05,482 INFO    - - - Saving output to yum_repositories/find__etc_yum.repos.d_*_-type_f_-exec_cat_{}_+.txt
+2018-11-05 10:37:05,482 WARNING - - - Unknown command or file -  [Errno 2] No such file or directory
+2018-11-05 10:37:05,482 INFO    - - - PROCESSES | command: ps -eww
+2018-11-05 10:37:05,538 INFO    - - - Saving output to processes/ps_-eww.txt
+2018-11-05 10:37:05,539 WARNING - - - Unknown command or file -  [Errno 2] No such file or directory
+2018-11-05 10:37:05,539 INFO    - - - USER COMMANDS | command: find /usr/bin -type f -exec ls {} +
+2018-11-05 10:37:05,569 INFO    - - - Saving output to user_commands/find__usr_bin_-type_f_-exec_ls_{}_+.txt
+2018-11-05 10:37:05,569 WARNING - - - Unknown command or file -  [Errno 2] No such file or directory
+2018-11-05 10:37:05,569 INFO    - - - USER COMMANDS | command: find /usr/local/bin -type f -exec ls {} +
+2018-11-05 10:37:05,588 INFO    - - - Saving output to user_commands/find__usr_local_bin_-type_f_-exec_ls_{}_+.txt
+2018-11-05 10:37:05,588 WARNING - - - Unknown command or file -  [Errno 2] No such file or directory
+2018-11-05 10:37:05,589 INFO    - - - NETWORKING INFORMATION | command: find /etc/hosts -type f -exec cat {} +
+2018-11-05 10:37:05,600 INFO    - - - Saving output to networking_information/find__etc_hosts_-type_f_-exec_cat_{}_+.txt
+2018-11-05 10:37:05,600 WARNING - - - Unknown command or file -  [Errno 2] No such file or directory
+2018-11-05 10:37:05,600 INFO    - - - NETWORKING INFORMATION | command: find /etc/networks -type f -exec cat {} +
+2018-11-05 10:37:05,610 INFO    - - - Saving output to networking_information/find__etc_networks_-type_f_-exec_cat_{}_+.txt
+2018-11-05 10:37:05,610 WARNING - - - Unknown command or file -  [Errno 2] No such file or directory
+2018-11-05 10:37:05,610 INFO    - - - NETWORKING INFORMATION | command: find /etc/protocols -type f -exec cat {} +
+2018-11-05 10:37:05,621 INFO    - - - Saving output to networking_information/find__etc_protocols_-type_f_-exec_cat_{}_+.txt
+2018-11-05 10:37:05,622 WARNING - - - Unknown command or file -  [Errno 2] No such file or directory
+2018-11-05 10:37:05,622 INFO    - - - NETWORKING INFORMATION | command: find /etc/ethers -type f -exec cat {} +
+2018-11-05 10:37:05,627 INFO    - - - Saving output to networking_information/find__etc_ethers_-type_f_-exec_cat_{}_+.txt
+2018-11-05 10:37:05,628 WARNING - - - Unknown command or file -  [Errno 2] No such file or directory
+2018-11-05 10:37:05,628 INFO    - - - NETWORKING INFORMATION | command: find /etc/netgroup -type f -exec cat {} +
+2018-11-05 10:37:05,637 INFO    - - - Saving output to networking_information/find__etc_netgroup_-type_f_-exec_cat_{}_+.txt
+2018-11-05 10:37:05,637 WARNING - - - Unknown command or file -  [Errno 2] No such file or directory
+2018-11-05 10:37:05,637 INFO    - - - NETWORKING INFORMATION | command: find /etc/dhclients -type f -exec cat {} +
+2018-11-05 10:37:05,644 INFO    - - - Saving output to networking_information/find__etc_dhclients_-type_f_-exec_cat_{}_+.txt
+2018-11-05 10:37:05,644 WARNING - - - Unknown command or file -  [Errno 2] No such file or directory
+2018-11-05 10:37:05,644 INFO    - - - KERNEL MODULES | command: lsmod
+2018-11-05 10:37:05,650 WARNING - - - Unknown command or file -  [Errno 2] No such file or directory
+2018-11-05 10:37:05,650 INFO    - - - STARTUP SCRIPTS | command: find /etc/rc.d/* -type f -exec cat {} +
+2018-11-05 10:37:05,658 INFO    - - - Saving output to startup_scripts/find__etc_rc.d_*_-type_f_-exec_cat_{}_+.txt
+2018-11-05 10:37:05,658 WARNING - - - Unknown command or file -  [Errno 2] No such file or directory
+2018-11-05 10:37:05,658 INFO    - - - STARTUP SCRIPTS | command: find /etc/init* -type f -exec cat {} +
+2018-11-05 10:37:05,662 INFO    - - - Saving output to startup_scripts/find__etc_init*_-type_f_-exec_cat_{}_+.txt
+2018-11-05 10:37:05,663 WARNING - - - Unknown command or file -  [Errno 2] No such file or directory
+2018-11-05 10:37:05,663 INFO    - - - INSTALLED YUM PACKAGES | command: yum list installed
+2018-11-05 10:37:05,667 WARNING - - - Unknown command or file -  [Errno 2] No such file or directory
+2018-11-05 10:37:05,667 INFO    - - - PROCESS TREE | command: pstree -alp
+2018-11-05 10:37:05,672 WARNING - - - Unknown command or file -  [Errno 2] No such file or directory
+2018-11-05 10:37:05,673 INFO    - - - HOSTNAME | command: hostname
+2018-11-05 10:37:05,680 INFO    - - - Saving output to hostname/hostname.txt
+2018-11-05 10:37:05,681 WARNING - - - Unknown command or file -  [Errno 2] No such file or directory
+2018-11-05 10:37:05,681 INFO    - - - HOSTNAME | command: find /etc/hostname -type f -exec cat {} +
+2018-11-05 10:37:05,688 INFO    - - - Saving output to hostname/find__etc_hostname_-type_f_-exec_cat_{}_+.txt
+2018-11-05 10:37:05,689 WARNING - - - Unknown command or file -  [Errno 2] No such file or directory
+2018-11-05 10:37:05,689 INFO    - - - OPEN FILES | command: lsof -R

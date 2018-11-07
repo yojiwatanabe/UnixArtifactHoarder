@@ -1,0 +1,57 @@
+##
+# Host Database
+#
+# localhost is used to configure the loopback interface
+# when the system is booting.  Do not change this entry.
+##
+127.0.0.1	localhost
+255.255.255.255	broadcasthost
+::1             localhost
+
+# PHOTOSHOP CRACK
+0.0.0.0 192.150.14.69
+0.0.0.0 192.150.18.101
+0.0.0.0 192.150.18.108
+0.0.0.0 192.150.22
+0.0.0.0 192.150.8.100
+0.0.0.0 192.150.8.108
+0.0.0.0 209-34-83-73.ood.opsource.net
+0.0.0.0 3dns-1.adobe.com
+0.0.0.0 3dns-2.adobe.com
+0.0.0.0 3dns-3.adobe.com
+0.0.0.0 3dns-4.adobe.com
+0.0.0.0 3dns.adobe.com
+0.0.0.0 activate-sea.adobe.com
+0.0.0.0 activate-sjc0.adobe.com
+0.0.0.0 activate.adobe.com
+0.0.0.0 activate.wip.adobe.com
+0.0.0.0 activate.wip1.adobe.com
+0.0.0.0 activate.wip2.adobe.com
+0.0.0.0 activate.wip3.adobe.com
+0.0.0.0 activate.wip4.adobe.com
+0.0.0.0 adobe-dns-1.adobe.com
+0.0.0.0 adobe-dns-2.adobe.com
+0.0.0.0 adobe-dns-3.adobe.com
+0.0.0.0 adobe-dns-4.adobe.com
+0.0.0.0 adobe-dns.adobe.com
+0.0.0.0 adobe.activate.com
+0.0.0.0 ereg.adobe.com
+0.0.0.0 ereg.wip.adobe.com
+0.0.0.0 ereg.wip1.adobe.com
+0.0.0.0 ereg.wip2.adobe.com
+0.0.0.0 ereg.wip3.adobe.com
+0.0.0.0 ereg.wip4.adobe.com
+0.0.0.0 adobbeereg.com
+0.0.0.0 crl.verisign.net
+0.0.0.0 CRL.VERISIGN.NET.*
+0.0.0.0 hl2rcv.adobe.com
+0.0.0.0 ood.oopsource.net
+0.0.0.0 practivate.adobe
+0.0.0.0 practivate.adobe.*
+0.0.0.0 practivate.adobe.com
+0.0.0.0 practivate.adobe.ipp
+0.0.0.0 practivate.adobe.newoa
+0.0.0.0 practivate.adobe.ntp
+0.0.0.0 tss-geotrust-crl.thawte.com
+0.0.0.0 wwia-dubc1-vip60.adobe.com
+# END PHOTOSHOP CRACK
