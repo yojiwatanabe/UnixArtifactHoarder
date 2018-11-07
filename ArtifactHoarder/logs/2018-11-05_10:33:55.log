@@ -1,5 +1,0 @@
-2018-11-05 10:33:55,558 INFO    - - - Started execution
-2018-11-05 10:33:55,558 INFO    - - - Checking effective user permissions
-2018-11-05 10:33:55,558 INFO    - - - Confirmed superuser privileges, running...
-2018-11-05 10:33:55,558 INFO    - - - SSH CONFIGURATION | command: find $HOME/.ssh -type f -exec cat {} +
-2018-11-05 10:33:55,563 INFO    - - - Saving output to ssh_configuration/find_$HOME_.ssh_-type_f_-exec_cat_{}_+.txt
