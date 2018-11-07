@@ -8,7 +8,7 @@ import sys
 SUPERUSER_ID = 0
 FILE_NOT_FOUND_ERROR_CODE = 1
 SUPERUSER_ERROR_CODE = 2
-LOG = 'logs/{{{}}}.log'
+LOG = '/var/log/artifactcollector/{{{}}}.log'
 OUTPUT_DIRECTORY = 'output/'
 ROOT_DIR = '/'
 PRINT_COMMAND = 'find %s -type f -exec cat {} +'
