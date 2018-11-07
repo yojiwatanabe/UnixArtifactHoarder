@@ -6,7 +6,6 @@ def main():
     myClass = ArtifactCollector.ArtifactCollector()
 
 
-
 # # # # # # # # # # # # # # # # # # # # # #
 if __name__ == '__main__':
     main()
