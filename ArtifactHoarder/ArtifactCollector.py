@@ -74,31 +74,31 @@ class ArtifactCollector(object):
         self.logger.addHandler(clo_handler)
 
 
-        self.logger.info('Started execution')
+        self.logger.debug('Started execution')
 
     # check_root_access()
     # Checks for the runtime's effective user ID permissions, exits if not enough access to collect artifacts
     def check_root_access(self):
-        self.logger.info('Checking effective user permissions')
+        self.logger.debug('Checking effective user permissions')
         if os.geteuid() != SUPERUSER_ID:
-            self.logger.info("Runtime does not have superuser privileges. Re-run program with sudo. Exiting...")
+            self.logger.debug("Runtime does not have superuser privileges. Re-run program with sudo. Exiting...")
             sys.exit(SUPERUSER_ERROR_CODE)
         else:
-            self.logger.info('Confirmed superuser privileges, running...')
+            self.logger.debug('Confirmed superuser privileges, running...')
             return
 
     # check_directories()
     # Sets up directory structure for file IO, ensures correct hierarchy for successful writing
     def check_directories(self):
-        self.logger.info('Checking directory structure...')
+        self.logger.debug('Checking directory structure...')
         section_directories = map(lambda x: x.replace(' ', '_'), COMMANDS)
 
         for section in section_directories:
             if not os.path.exists(OUTPUT_DIRECTORY + section):
                 os.mkdir(OUTPUT_DIRECTORY + section)
-                self.logger.info('Directory %s does not exist, creating...' % section)
+                self.logger.debug('Directory %s does not exist, creating...' % section)
             else:
-                self.logger.info('Directory %s exists' % section)
+                self.logger.debug('Directory %s exists' % section)
 
     # call_commands()
     # Function to iterate through the command dictionary and executing each command. It saves runtime information to the
