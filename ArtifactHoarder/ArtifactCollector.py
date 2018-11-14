@@ -54,7 +54,7 @@ class ArtifactCollector(object):
         self.logger = logging.getLogger()
         self.start_logging()
         self.check_root_access()
-        self.check_directories()
+        # self.check_directories()
         self.call_commands()
 
     #   start_logging()
@@ -72,7 +72,6 @@ class ArtifactCollector(object):
         clo_handler.setLevel(logging.DEBUG)
         clo_handler.setFormatter(formatter)
         self.logger.addHandler(clo_handler)
-
 
         self.logger.debug('Started execution')
 
@@ -106,13 +105,13 @@ class ArtifactCollector(object):
     def call_commands(self):
         for section in COMMANDS:
             for command in COMMANDS[section]:
-                self.logger.info(section.upper() + ' | command: ' + command)
                 try:
-                    process = Popen(shlex.split(command), stdout=PIPE)
-                    output = process.stdout.read().decode('ascii')
-                    self.save_output(section, command, output)
+                    process = Popen(shlex.split(command), stdout=PIPE, stderr=PIPE)
+                    (output, error) = process.communicate()
+                    # output = process.stdout.read().decode()
+                    self.output_syslog(section, command, output.decode('utf-8').rstrip(), error.decode('utf-8').rstrip())
                 except OSError as e:
-                    self.logger.warning('Unknown command or file -  ' + str(e))
+                    self.logger.warning('file/command -  ' + str(e))
                 except CalledProcessError:
                     self.logger.warning('Could not find command!')
                 except UnicodeDecodeError:
@@ -123,11 +122,24 @@ class ArtifactCollector(object):
                     if process == FILE_NOT_FOUND_ERROR_CODE:
                         self.logger.warning('File does not exist, unable to run command: ' + command)
 
-    def save_output(self, section, command, output):
-        fname = os.path.join(OUTPUT_DIRECTORY + section.replace(' ', '_'), command.replace(' ', '_').replace('/', '_')
-                             + '.txt')
-        self.logger.info('Saving output to %s' % fname)
-        file = open(fname, 'w')
-        file.write(output)
-        file.close()
-        self.logger.info('Saved ./%s/%s successfully' % (section, command))
+    # output_syslog()
+    # Function to output the section, command, and output to the log at the info level. Main way of presenting data.
+    def output_syslog(self, section, command, output, error):
+        if error:
+            to_write = "SECTION=\"" + section + '\"' + ' COMMAND=\"' + command + '\"' + ' OUTPUT=\"' + error + '\"' \
+                       + ' ERROR=\"TRUE\"'
+        else:
+            to_write = "SECTION=\"" + section + '\"' + ' COMMAND=\"' + command + '\"' + ' OUTPUT=\"' + output + '\"' \
+                       + ' ERROR=\"FALSE\"'
+
+        self.logger.info(to_write)
+
+
+    # def save_output(self, section, command, output):
+    #     fname = os.path.join(OUTPUT_DIRECTORY + section.replace(' ', '_'), command.replace(' ', '_').replace('/', '_')
+    #                          + '.txt')
+    #     self.logger.info('Saving output to %s' % fname)
+    #     file = open(fname, 'w')
+    #     file.write(output)
+    #     file.close()
+    #     self.logger.info('Saved ./%s/%s successfully' % (section, command))
