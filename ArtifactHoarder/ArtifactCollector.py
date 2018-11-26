@@ -1,5 +1,5 @@
 from datetime import datetime
-from subprocess import Popen, PIPE, CalledProcessError
+from subprocess import Popen, PIPE, CalledProcessError, call
 import logging
 import shlex
 import os
@@ -8,7 +8,8 @@ import sys
 SUPERUSER_ID = 0
 FILE_NOT_FOUND_ERROR_CODE = 1
 SUPERUSER_ERROR_CODE = 2
-LOG = '/var/log/artifactcollector/{{{}}}.log'
+LOG_DIRECTORY = '/var/log/artifactcollector/'
+LOG_FILE = LOG_DIRECTORY + '{{{}}}.log'
 OUTPUT_DIRECTORY = 'output/'
 ROOT_DIR = '/'
 PRINT_COMMAND = 'find %s -type f -exec cat {} +'
@@ -25,37 +26,46 @@ COMMANDS = {'kernel_name_version'   : ['uname -rs'],
             'hostname'              : ['hostname',
                                        PRINT_COMMAND % '/etc/hostname'],
             'login history'         : ['last -Faixw',
-                                       PRINT_COMMAND % '/etc/logs/auth.log',
-                                       PRINT_COMMAND % '/etc/logs/secure',
-                                       PRINT_COMMAND % '/etc/logs/audit.log'],
+                                       PRINT_COMMAND % '/var/log/auth.log',
+                                       PRINT_COMMAND % '/var/log/secure*',+6
+                                       PRINT_COMMAND % '/var/log/audit*'],
             'unix distribution'     : [PRINT_COMMAND % '/etc/*release'],
             'socket connections'    : ['ss -p',
                                        'ss -naop'],
-            'processes'             : ['ps -eww'],
+            'processes'             : ['ps -eww',
+                                       'pstree -alp'],
             'password files'        : [PRINT_COMMAND % '/etc/shadow',
                                        PRINT_COMMAND % '/etc/passwd'],
             'scheduled jobs'        : [PRINT_COMMAND % '/etc/cron*',
-                                       PRINT_COMMAND % '/var/spool/cron/*'],
+                                       PRINT_COMMAND % '/var/spool/cron*'],
             'x window config files' : [PRINT_COMMAND % '/etc/X11/*'],
-            'yum repositories'      : [PRINT_COMMAND % '/etc/yum.repos.d/*'],
+            'yum repositories'      : [PRINT_COMMAND % '/etc/yum.repos.d*'],
             'cached yum data files' : [LIST_COMMAND % '/var/cache/yum'],
             'installed yum packages': ['yum list installed'],
             'startup scripts'       : [PRINT_COMMAND % '/etc/rc.d/*',
                                        PRINT_COMMAND % '/etc/init*'],
             'open files'            : ['lsof -R'],
-            'ssh configuration'     : [PRINT_COMMAND % '$HOME/.ssh'],
+            'ssh configuration'     : [PRINT_COMMAND % '/home/*/.ssh'],
             'user commands'         : [LIST_COMMAND % '/usr/bin',
                                        LIST_COMMAND % '/usr/local/bin'],
-            'process tree'          : ['pstree -alp']}
+            'custom log sources'    : [LIST_COMMAND % '/var/log/sudo']}
 
 
 class ArtifactCollector(object):
     def __init__(self):
         self.logger = logging.getLogger()
+        self.check_log_directory()
         self.start_logging()
         self.check_root_access()
         # self.check_directories()
         self.call_commands()
+
+
+    # check_log_directory()
+    # Make sure the /var/log/ directory for Artifact Collector exists. Creates directory if it does not exist.
+    def check_log_directory(self):
+        if not os.path.exists(LOG_DIRECTORY):
+            os.mkdir(LOG_DIRECTORY)
 
     #   start_logging()
     #   Begin logging execution
@@ -64,7 +74,8 @@ class ArtifactCollector(object):
 
         formatter = logging.Formatter('%(asctime)s %(levelname)-8s- - - %(message)s')
 
-        file_handler = logging.FileHandler(LOG.replace('{{{}}}', r'{date:%Y-%m-%d_%H:%M:%S}'.format(date=datetime.now())))
+        file_handler = logging.FileHandler(LOG_FILE.replace('{{{}}}',
+                                                            r'{date:%Y-%m-%d_%H:%M:%S}'.format(date=datetime.now())))
         file_handler.setFormatter(formatter)
         self.logger.addHandler(file_handler)
 
@@ -106,7 +117,7 @@ class ArtifactCollector(object):
         for section in COMMANDS:
             for command in COMMANDS[section]:
                 try:
-                    process = Popen(shlex.split(command), stdout=PIPE, stderr=PIPE)
+                    process = Popen(shlex.split(command), stdout=PIPE, stderr=PIPE, shell=False)
                     (output, error) = process.communicate()
                     # output = process.stdout.read().decode()
                     self.output_syslog(section, command, output.decode('utf-8').rstrip(), error.decode('utf-8').rstrip())
