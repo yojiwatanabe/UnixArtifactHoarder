@@ -20,16 +20,15 @@ COMMANDS = {'kernel_name_version'   : ['uname -rs'],
             'networking information': [PRINT_COMMAND % '/etc/hosts',
                                        PRINT_COMMAND % '/etc/networks',
                                        PRINT_COMMAND % '/etc/protocols',
-                                       PRINT_COMMAND % '/etc/ethers',
                                        PRINT_COMMAND % '/etc/netgroup',
-                                       PRINT_COMMAND % '/etc/dhclients'],
+                                       PRINT_COMMAND % '/etc/dhclients',],
             'hostname'              : ['hostname',
                                        PRINT_COMMAND % '/etc/hostname'],
             'login history'         : ['last -Faixw',
                                        PRINT_COMMAND % '/var/log/auth.log',
-                                       PRINT_COMMAND % '/var/log/secure*',+6
+                                       PRINT_COMMAND % '/var/log/secure*',
                                        PRINT_COMMAND % '/var/log/audit*'],
-            'unix distribution'     : [PRINT_COMMAND % '/etc/*release'],
+            'unix distribution'     : [PRINT_COMMAND % '/etc/os-release'],
             'socket connections'    : ['ss -p',
                                        'ss -naop'],
             'processes'             : ['ps -eww',
@@ -37,9 +36,14 @@ COMMANDS = {'kernel_name_version'   : ['uname -rs'],
             'password files'        : [PRINT_COMMAND % '/etc/shadow',
                                        PRINT_COMMAND % '/etc/passwd'],
             'scheduled jobs'        : [PRINT_COMMAND % '/etc/cron*',
-                                       PRINT_COMMAND % '/var/spool/cron*'],
-            'x window config files' : [PRINT_COMMAND % '/etc/X11/*'],
-            'yum repositories'      : [PRINT_COMMAND % '/etc/yum.repos.d*'],
+                                       PRINT_COMMAND % '/var/spool/cron'],
+            'administrative db info': ['getent passwd',
+                                       'getent group,'
+                                       'getent protocols',
+                                       'getent networks',
+                                       'getent services',
+                                       'getent rpc'],
+            'yum repositories'      : [PRINT_COMMAND % '/etc/yum.repos.d'],
             'cached yum data files' : [LIST_COMMAND % '/var/cache/yum'],
             'installed yum packages': ['yum list installed'],
             'startup scripts'       : [PRINT_COMMAND % '/etc/rc.d/*',
@@ -63,7 +67,8 @@ class ArtifactCollector(object):
 
     # check_log_directory()
     # Make sure the /var/log/ directory for Artifact Collector exists. Creates directory if it does not exist.
-    def check_log_directory(self):
+    @staticmethod
+    def check_log_directory():
         if not os.path.exists(LOG_DIRECTORY):
             os.mkdir(LOG_DIRECTORY)
 
@@ -119,7 +124,6 @@ class ArtifactCollector(object):
                 try:
                     process = Popen(shlex.split(command), stdout=PIPE, stderr=PIPE, shell=False)
                     (output, error) = process.communicate()
-                    # output = process.stdout.read().decode()
                     self.output_syslog(section, command, output.decode('utf-8').rstrip(), error.decode('utf-8').rstrip())
                 except OSError as e:
                     self.logger.warning('file/command -  ' + str(e))
@@ -137,11 +141,11 @@ class ArtifactCollector(object):
     # Function to output the section, command, and output to the log at the info level. Main way of presenting data.
     def output_syslog(self, section, command, output, error):
         if error:
-            to_write = "SECTION=\"" + section + '\"' + ' COMMAND=\"' + command + '\"' + ' OUTPUT=\"' + error + '\"' \
-                       + ' ERROR=\"TRUE\"'
+            to_write = "SECTION=\"" + section + '\"' + ' COMMAND=\"' + command + '\"' + ' ERROR=\"TRUE\"' \
+                       + ' OUTPUT=\"' + error + '\"'
         else:
-            to_write = "SECTION=\"" + section + '\"' + ' COMMAND=\"' + command + '\"' + ' OUTPUT=\"' + output + '\"' \
-                       + ' ERROR=\"FALSE\"'
+            to_write = "SECTION=\"" + section + '\"' + ' COMMAND=\"' + command + '\"' + ' ERROR=\"FALSE\"' \
+                       + ' OUTPUT=\"' + output + '\"'
 
         self.logger.info(to_write)
 
