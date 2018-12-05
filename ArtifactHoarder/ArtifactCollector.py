@@ -8,6 +8,7 @@ import sys
 SUPERUSER_ID = 0
 FILE_NOT_FOUND_ERROR_CODE = 1
 SUPERUSER_ERROR_CODE = 2
+WILDCARD = '*'
 LOG_DIRECTORY = '/var/log/artifactcollector/'
 LOG_FILE = LOG_DIRECTORY + '{{{}}}.log'
 OUTPUT_DIRECTORY = 'output/'
@@ -20,12 +21,10 @@ COMMANDS = {'kernel_name_version'   : ['uname -rs'],
             'networking information': [PRINT_COMMAND % '/etc/hosts',
                                        PRINT_COMMAND % '/etc/networks',
                                        PRINT_COMMAND % '/etc/protocols',
-                                       PRINT_COMMAND % '/etc/netgroup',
-                                       PRINT_COMMAND % '/etc/dhclients',],
+                                       PRINT_COMMAND % '/etc/nsswitch.conf'],
             'hostname'              : ['hostname',
                                        PRINT_COMMAND % '/etc/hostname'],
             'login history'         : ['last -Faixw',
-                                       PRINT_COMMAND % '/var/log/auth.log',
                                        PRINT_COMMAND % '/var/log/secure*',
                                        PRINT_COMMAND % '/var/log/audit*'],
             'unix distribution'     : [PRINT_COMMAND % '/etc/os-release'],
@@ -38,7 +37,7 @@ COMMANDS = {'kernel_name_version'   : ['uname -rs'],
             'scheduled jobs'        : [PRINT_COMMAND % '/etc/cron*',
                                        PRINT_COMMAND % '/var/spool/cron'],
             'administrative db info': ['getent passwd',
-                                       'getent group,'
+                                       'getent group',
                                        'getent protocols',
                                        'getent networks',
                                        'getent services',
@@ -122,7 +121,10 @@ class ArtifactCollector(object):
         for section in COMMANDS:
             for command in COMMANDS[section]:
                 try:
-                    process = Popen(shlex.split(command), stdout=PIPE, stderr=PIPE, shell=False)
+                    if WILDCARD not in command:
+                        process = Popen(shlex.split(command), stdout=PIPE, stderr=PIPE, shell=False)
+                    else:
+                        process = Popen(shlex.split(command), stdout=PIPE, stderr=PIPE, shell=True)
                     (output, error) = process.communicate()
                     self.output_syslog(section, command, output.decode('utf-8').rstrip(), error.decode('utf-8').rstrip())
                 except OSError as e:
