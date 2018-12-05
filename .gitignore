@@ -1,6 +1,6 @@
 #Project
 logs/*
-ArtifactHoarder/output/*
+./ArtifactHoarder/output/*
 
 #IDE
 python_sudo
