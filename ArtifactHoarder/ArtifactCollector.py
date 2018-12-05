@@ -13,8 +13,8 @@ LOG_DIRECTORY = '/var/log/artifactcollector/'
 LOG_FILE = LOG_DIRECTORY + '{{{}}}.log'
 OUTPUT_DIRECTORY = 'output/'
 ROOT_DIR = '/'
-PRINT_COMMAND = 'find %s -type f -exec cat {} +'
-LIST_COMMAND = 'find %s -type f -exec ls {} +'
+PRINT_COMMAND = 'find %s -type f -print -exec tail {} ;'
+LIST_COMMAND = 'find %s -type f -exec ls {} ;'
 COMMANDS = {'kernel_name_version'   : ['uname -rs'],
             'kernel modules'        : ['lsmod'],
             'network interfaces'    : ['ifconfig -a'],
@@ -46,12 +46,14 @@ COMMANDS = {'kernel_name_version'   : ['uname -rs'],
             'cached yum data files' : [LIST_COMMAND % '/var/cache/yum'],
             'installed yum packages': ['yum list installed'],
             'startup scripts'       : [PRINT_COMMAND % '/etc/rc.d/*',
-                                       PRINT_COMMAND % '/etc/init*'],
+                                       PRINT_COMMAND % '/etc/rc.d/*/*',
+                                       PRINT_COMMAND % '/etc/init*',
+                                       PRINT_COMMAND % '/etc/init*/*'],
             'open files'            : ['lsof -R'],
-            'ssh configuration'     : [PRINT_COMMAND % '/home/*/.ssh'],
+            'ssh configuration'     : ['cd /home ;' + PRINT_COMMAND % '*/.ssh'],
             'user commands'         : [LIST_COMMAND % '/usr/bin',
                                        LIST_COMMAND % '/usr/local/bin'],
-            'custom log sources'    : [LIST_COMMAND % '/var/log/sudo']}
+            'custom log sources'    : [PRINT_COMMAND % '/var/log/sudo']}
 
 
 class ArtifactCollector(object):
@@ -124,7 +126,7 @@ class ArtifactCollector(object):
                     if WILDCARD not in command:
                         process = Popen(shlex.split(command), stdout=PIPE, stderr=PIPE, shell=False)
                     else:
-                        process = Popen(shlex.split(command), stdout=PIPE, stderr=PIPE, shell=True)
+                        process = Popen(command.replace(';', '\;;'), stdout=PIPE, stderr=PIPE, shell=True)
                     (output, error) = process.communicate()
                     self.output_syslog(section, command, output.decode('utf-8').rstrip(), error.decode('utf-8').rstrip())
                 except OSError as e:
