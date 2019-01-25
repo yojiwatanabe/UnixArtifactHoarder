@@ -54,7 +54,7 @@ COMMANDS = {'kernel_name_version'   : ['uname -rs'],
             'custom log sources'    : [PRINT_COMMAND % '/var/log/sudo']}
 
 
-class ArtifactCollector(object):
+class Weasel(object):
     def __init__(self):
         self.logger = logging.getLogger()
         self.check_log_directory()

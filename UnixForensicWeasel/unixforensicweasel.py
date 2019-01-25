@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 
-import ArtifactCollector
+import Weasel
 
 def main():
-    myClass = ArtifactCollector.ArtifactCollector()
+    run = Weasel.Weasel()
 
 
 # # # # # # # # # # # # # # # # # # # # # #
