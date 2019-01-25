@@ -1,9 +1,9 @@
 from datetime import datetime
 from subprocess import Popen, PIPE, CalledProcessError
+from sys import exit
 import logging
 import shlex
 import os
-import sys
 
 SUPERUSER_ID = 0
 FILE_NOT_FOUND_ERROR_CODE = 1
@@ -11,8 +11,6 @@ SUPERUSER_ERROR_CODE = 2
 WILDCARD = '*'
 LOG_DIRECTORY = '/var/log/artifactcollector/'
 LOG_FILE = LOG_DIRECTORY + '{{{}}}.log'
-OUTPUT_DIRECTORY = 'output/'
-ROOT_DIR = '/'
 PRINT_COMMAND = 'find %s -type f -print -exec tail {} ;'
 LIST_COMMAND = 'find %s -type f -exec ls {} ;'
 COMMANDS = {'kernel_name_version'   : ['uname -rs'],
@@ -62,7 +60,6 @@ class ArtifactCollector(object):
         self.check_log_directory()
         self.start_logging()
         self.check_root_access()
-        # self.check_directories()
         self.call_commands()
 
 
@@ -98,23 +95,10 @@ class ArtifactCollector(object):
         self.logger.debug('Checking effective user permissions')
         if os.geteuid() != SUPERUSER_ID:
             self.logger.debug("Runtime does not have superuser privileges. Re-run program with sudo. Exiting...")
-            sys.exit(SUPERUSER_ERROR_CODE)
+            exit(SUPERUSER_ERROR_CODE)
         else:
             self.logger.debug('Confirmed superuser privileges, running...')
             return
-
-    # check_directories()
-    # Sets up directory structure for file IO, ensures correct hierarchy for successful writing
-    def check_directories(self):
-        self.logger.debug('Checking directory structure...')
-        section_directories = map(lambda x: x.replace(' ', '_'), COMMANDS)
-
-        for section in section_directories:
-            if not os.path.exists(OUTPUT_DIRECTORY + section):
-                os.mkdir(OUTPUT_DIRECTORY + section)
-                self.logger.debug('Directory %s does not exist, creating...' % section)
-            else:
-                self.logger.debug('Directory %s exists' % section)
 
     # call_commands()
     # Function to iterate through the command dictionary and executing each command. It saves runtime information to the
@@ -152,13 +136,3 @@ class ArtifactCollector(object):
                        + ' OUTPUT=\"' + output + '\"'
 
         self.logger.info(to_write)
-
-
-    # def save_output(self, section, command, output):
-    #     fname = os.path.join(OUTPUT_DIRECTORY + section.replace(' ', '_'), command.replace(' ', '_').replace('/', '_')
-    #                          + '.txt')
-    #     self.logger.info('Saving output to %s' % fname)
-    #     file = open(fname, 'w')
-    #     file.write(output)
-    #     file.close()
-    #     self.logger.info('Saved ./%s/%s successfully' % (section, command))
