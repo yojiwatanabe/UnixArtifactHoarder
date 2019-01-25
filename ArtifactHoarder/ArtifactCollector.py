@@ -1,5 +1,5 @@
 from datetime import datetime
-from subprocess import Popen, PIPE, CalledProcessError, call
+from subprocess import Popen, PIPE, CalledProcessError
 import logging
 import shlex
 import os
