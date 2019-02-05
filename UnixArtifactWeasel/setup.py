@@ -1,7 +1,5 @@
 from setuptools import setup
 
-
-
 setup(
    name='Unix Forensic Weasel',
    version='1.0.alpha',

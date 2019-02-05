@@ -9,7 +9,7 @@ SUPERUSER_ID = 0
 FILE_NOT_FOUND_ERROR_CODE = 1
 SUPERUSER_ERROR_CODE = 2
 WILDCARD = '*'
-LOG_DIRECTORY = '/var/log/artifactcollector/'
+LOG_DIRECTORY = '/var/log/unixartifactweasel/'
 LOG_FILE = LOG_DIRECTORY + '{{{}}}.log'
 PRINT_COMMAND = 'find %s -type f -print -exec tail {} ;'
 LIST_COMMAND = 'find %s -type f -exec ls {} ;'
@@ -44,9 +44,7 @@ COMMANDS = {'kernel_name_version'   : ['uname -rs'],
             'cached yum data files' : [LIST_COMMAND % '/var/cache/yum'],
             'installed yum packages': ['yum list installed'],
             'startup scripts'       : [PRINT_COMMAND % '/etc/rc.d/*',
-                                       PRINT_COMMAND % '/etc/rc.d/*/*',
-                                       PRINT_COMMAND % '/etc/init*',
-                                       PRINT_COMMAND % '/etc/init*/*'],
+                                       PRINT_COMMAND % '/etc/init*'],
             'open files'            : ['lsof -R'],
             'ssh configuration'     : ['cd /home ;' + PRINT_COMMAND % '*/.ssh'],
             'user commands'         : [LIST_COMMAND % '/usr/bin',
