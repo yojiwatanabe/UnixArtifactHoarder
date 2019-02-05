@@ -95,4 +95,4 @@ Artifact collection depends on two important factors, the complete collection of
 
 
 ### Artifacts
-![artifact_table](https://raw.githubusercontent.com/yojiwatanabe/UnixArtifactWeasel/artifact_table.png)
+![artifact_table](https://raw.githubusercontent.com/yojiwatanabe/UnixArtifactWeasel/master/artifact_table.png)
