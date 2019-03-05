@@ -70,14 +70,14 @@ Artifact collection depends on two important factors, the complete collection of
 
 
 ### Running
-- Unix Artifact Weasel requires superuser privileges, so run with `sudo python UnixForensicWeasel/run.py`
+- Unix Artifact Weasel requires superuser privileges, so run with `sudo python3 UnixForensicWeasel/run.py`
 - Alternatively, users can write a shell script with the following content and use it as the executable:
     ```
     #!/bin/bash
     
     # Can be a path to a python3 virtual environment (recommended) or
     # path to base interpreter
-    PATH_TO_PYTHON_ENV=“/Users/JDoe/Documents/weasel/venv/bin/python3"
+    PATH_TO_PYTHON_ENV=“/Users/JDoe/Documents/UnixArtifactWeasel/venv/bin/python3"
     PATH_TO_PYTHON_PROG=“/Users/JDoe/Documents/UnixArtifactWeasel/run.py”
     
     sudo $PATH_TO_PYTHON_ENV $PATH_TO_PYTHON_PROG
@@ -96,3 +96,4 @@ Artifact collection depends on two important factors, the complete collection of
 
 ### Artifacts
 ![artifact_table](https://raw.githubusercontent.com/yojiwatanabe/UnixArtifactWeasel/master/artifact_table.png)
+
