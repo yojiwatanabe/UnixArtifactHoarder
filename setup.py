@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
    name='Unix Artifact Weasel',
-   version='1.0.alpha',
+   version='1.0',
    description='An artifact collection tool for forensics of Unix systems',
    license="MIT",
    long_description='The purpose of Unix Artifact Weasel is to perform artifact collection on Unix systems, allowing'

@@ -66,7 +66,6 @@ class Weasel(object):
         self.check_root_access()
         self.call_commands()
 
-
     # check_log_directory()
     # Make sure the /var/log/ directory for Artifact Collector exists. Creates directory if it does not exist.
     @staticmethod
