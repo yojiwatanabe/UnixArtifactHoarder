@@ -1,5 +1,4 @@
 # Unix Artifact Hoarder
-### In-progress, October 2018
 ```
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
@@ -61,7 +60,6 @@
 //**************//////////***/***************//////*************////*////****///////////////////////////////********////
 ```
 
-### In-progress, February 2019
 In a 2017, the average time an attacker has access to a compromised machine to when they are discovered is 101 days. While a great improvement from a dwell time of 400 days in 2011, 101 days is not the desirable zero, demonstrating a need for a reliable method of assessing the integrity of managed machines. The purpose of Unix Security Weasel is to perform artifact collection on Unix systems, allowing a forensic security analysts to review the artifacts and determine the integrity of the system. The tool is designed to be used in the intrusion detection or response process, where beyond assessing the integrity of a system, it can give insight into the scope or method of exploitation.
 
 Artifact collection depends on two important factors, the complete collection of all files of interest and the assertion that these files are has its integrity preserved. By understanding the commands built into the COMMAND dictionary structure, an analyst can understand what artifacts are being retrieved and their importance in identifying a compromised machine, as well as be assured of their integrity given the collection method.
